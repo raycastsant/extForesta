@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fajas_TiposSuelosEsp" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sql" class="java.lang.String">
+		<defaultValueExpression><![CDATA["select * from f_superficieprot group by cuenca, provincia, municipio, tipohidro, cant, totalarea, protegida, totalref, deforestada, marabu"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[$P!{sql}]]>
+	</queryString>
+	<field name="cuenca" class="java.lang.String"/>
+	<field name="provincia" class="java.lang.String"/>
+	<field name="municipio" class="java.lang.String"/>
+	<field name="tipohidro" class="java.lang.String"/>
+	<field name="cant" class="java.lang.Integer"/>
+	<field name="totalarea" class="java.lang.Double"/>
+	<field name="protegida" class="java.lang.Double"/>
+	<field name="totalref" class="java.lang.Double"/>
+	<field name="deforestada" class="java.lang.Double"/>
+	<field name="marabu" class="java.lang.Double"/>
+	<variable name="hidro" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tipohidro}+"s"]]></variableExpression>
+	</variable>
+	<variable name="totalarea_1" class="java.lang.Double" resetType="Group" resetGroup="municipio" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalarea}]]></variableExpression>
+	</variable>
+	<variable name="protegida_1" class="java.lang.Double" resetType="Group" resetGroup="municipio" calculation="Sum">
+		<variableExpression><![CDATA[$F{protegida}]]></variableExpression>
+	</variable>
+	<variable name="totalref_1" class="java.lang.Double" resetType="Group" resetGroup="municipio" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalref}]]></variableExpression>
+	</variable>
+	<variable name="deforestada_1" class="java.lang.Double" resetType="Group" resetGroup="municipio" calculation="Sum">
+		<variableExpression><![CDATA[$F{deforestada}]]></variableExpression>
+	</variable>
+	<variable name="marabu_1" class="java.lang.Double" resetType="Group" resetGroup="municipio" calculation="Sum">
+		<variableExpression><![CDATA[$F{marabu}]]></variableExpression>
+	</variable>
+	<group name="Provincia">
+		<groupExpression><![CDATA[$F{provincia}]]></groupExpression>
+		<groupHeader>
+			<band height="43">
+				<staticText>
+					<reportElement x="5" y="4" width="52" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cuenca :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="57" y="3" width="261" height="16"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{cuenca}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="25" width="62" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Provincia :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="67" y="24" width="313" height="16"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{provincia}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="5" y="40" width="383" height="1" forecolor="#666666"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="municipio">
+		<groupExpression><![CDATA[$F{cuenca}]]></groupExpression>
+		<groupHeader>
+			<band height="100">
+				<staticText>
+					<reportElement x="38" y="4" width="64" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Municipio :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="102" y="3" width="313" height="16"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{municipio}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="12" y="45" width="546" height="54"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="12" y="45" width="103" height="54"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="115" y="45" width="37" height="54"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="152" y="45" width="406" height="18"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="152" y="63" width="74" height="36"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="226" y="63" width="74" height="36"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="300" y="63" width="258" height="18"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="271" y="47" width="198" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Area de la zona de protección]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="300" y="81" width="86" height="18"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="386" y="81" width="86" height="18"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="472" y="81" width="86" height="18"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="356" y="65" width="142" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pendientes de reforestar]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="329" y="83" width="42" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="392" y="83" width="76" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Deforestada]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="480" y="83" width="76" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Con marabú]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="31" y="55" width="64" height="36"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cuerpo de agua]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="125" y="64" width="18" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="168" y="73" width="42" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="235" y="73" width="61" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Protegida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="38" y="25" width="25" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[U/M]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<staticText>
+					<reportElement x="106" y="4" width="42" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="161" y="3" width="60" height="16"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalarea_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="233" y="3" width="63" height="16"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{protegida_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="312" y="3" width="61" height="16"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalref_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="401" y="3" width="61" height="16"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{deforestada_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="485" y="3" width="61" height="16"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{marabu_1}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="14" y="20" width="544" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="4" width="194" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Superficie de Protección]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<textField pattern="h.mm a">
+				<reportElement x="493" y="23" width="43" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="55" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="459" y="0" width="21" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="380" y="23" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="45" width="569" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="119" y="2" width="29" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="2" width="61" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{totalarea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="2" width="61" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{protegida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="2" width="61" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{totalref}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="2" width="61" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deforestada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="2" width="61" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{marabu}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="14" y="19" width="544" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="18" y="2" width="92" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{hidro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>

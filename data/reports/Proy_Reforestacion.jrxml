@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fajas_TiposSuelosEsp" language="groovy" pageWidth="680" pageHeight="792" columnWidth="640" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1">
+		<queryString>
+			<![CDATA[select * from f_tfichac]]>
+		</queryString>
+		<field name="actividades" class="java.lang.String"/>
+		<field name="um" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.String"/>
+		<field name="cup" class="java.lang.String"/>
+		<field name="cuc" class="java.lang.String"/>
+		<field name="total" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="sql" class="java.lang.String">
+		<defaultValueExpression><![CDATA["select cuencas.nombre as cuenca, fajas.nombre_lugar as faja, provincias.nombre as provincia, municipios.nombre as municipio, nombre_productor as productor, organismo, proyecto.nombre_lugar as nomblugar, tipo_hidrografia.tipo_elemento as tipohidro, hidrografia.nombre as rio_embalse, area_reforestar as areareforest,8.0 as pendiente, precipitacion as precmedia, 'Ferralítico Rojo Lixiviado, Ferralítico Amarillento, Fercialítico Pardo Rojizo' as suelos, profundidad_efectiva as profefect,  ph, materiaorganica as matorg, tipo_erosion_suelo as tipoerosion, grado_erosion_suelo as gradoerosion, vegetacion as vegetacion, densidad||'. '||observaciones_veg as densidadveg, '20.0' as ancho, tipo_hidrografia.tipo_elemento as tipo, case when tipo_hidrografia.tipo_elemento='embalse' then round(CAST(ST_perimeter(rios.the_geom) as numeric),2) when tipo_hidrografia.tipo_elemento='rio' then round(CAST(ST_Length(rios.the_geom) as numeric),2) end as long_perim,4.58 AS area, case proyecto_general when true then 'Si' else 'No' end as proyTecnicoGen, especificacion as proyectespecif, metodo_plantacion as metodoplant, '' as compespecies, marcox, marcoy, round(CAST((10000/(marcox*marcoy)) as numeric),2) as plantacion, hileras, '' as medconserv, '' as medincendios, '' as medpastoreo, tenente as istenente from ((((((fajas inner join proyecto on proyecto.faja=fajas.gid)inner join rios on fajas.hidrografia=rios.tipo_hidrografia)left join hidrografia on rios.tipo_hidrografia=hidrografia.id) left join tipo_hidrografia on hidrografia.tipo_hidrografia=tipo_hidrografia.id)  left join municipios on st_intersects(fajas.the_geom, municipios.the_geom)) left join provincias on municipios.provincia=provincias.gid)inner join cuencas on st_intersects(cuencas.the_geom, municipios.the_geom) Where fajas.gid in(56) and st_intersects(rios.the_geom, cuencas.the_geom)  and proyecto.id=26 Group by cuencas.nombre, fajas.nombre_lugar, provincias.nombre, municipios.nombre, hidrografia.nombre, rios.the_geom, hidrografia.tipo_hidrografia, tipo_hidrografia.tipo_elemento, nombre_productor, organismo, proyecto.nombre_lugar, area_reforestar, precipitacion, profundidad_efectiva, ph, materiaorganica, tipo_erosion_suelo, grado_erosion_suelo, vegetacion, densidad, observaciones_veg, proyecto_general, especificacion, metodo_plantacion, marcox, marcoy, hileras, tenente"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[$P!{sql}]]>
+	</queryString>
+	<field name="cuenca" class="java.lang.String"/>
+	<field name="faja" class="java.lang.String"/>
+	<field name="provincia" class="java.lang.String"/>
+	<field name="municipio" class="java.lang.String"/>
+	<field name="productor" class="java.lang.String"/>
+	<field name="organismo" class="java.lang.String"/>
+	<field name="nomblugar" class="java.lang.String"/>
+	<field name="tipohidro" class="java.lang.String"/>
+	<field name="rio_embalse" class="java.lang.String"/>
+	<field name="areareforest" class="java.lang.Double"/>
+	<field name="pendiente" class="java.math.BigDecimal"/>
+	<field name="precmedia" class="java.lang.Double"/>
+	<field name="suelos" class="java.lang.String"/>
+	<field name="profefect" class="java.lang.Double"/>
+	<field name="ph" class="java.lang.Double"/>
+	<field name="matorg" class="java.lang.Double"/>
+	<field name="tipoerosion" class="java.lang.String"/>
+	<field name="gradoerosion" class="java.lang.String"/>
+	<field name="vegetacion" class="java.lang.String"/>
+	<field name="densidadveg" class="java.lang.String"/>
+	<field name="ancho" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="long_perim" class="java.math.BigDecimal"/>
+	<field name="area" class="java.math.BigDecimal"/>
+	<field name="proytecnicogen" class="java.lang.String"/>
+	<field name="proyectespecif" class="java.lang.String"/>
+	<field name="metodoplant" class="java.lang.String"/>
+	<field name="compespecies" class="java.lang.String"/>
+	<field name="marcox" class="java.lang.Double"/>
+	<field name="marcoy" class="java.lang.Double"/>
+	<field name="plantacion" class="java.math.BigDecimal"/>
+	<field name="hileras" class="java.lang.Integer"/>
+	<field name="medconserv" class="java.lang.String"/>
+	<field name="medincendios" class="java.lang.String"/>
+	<field name="medpastoreo" class="java.lang.String"/>
+	<field name="istenente" class="java.lang.Boolean"/>
+	<variable name="variable1" class="java.lang.String">
+		<variableExpression><![CDATA[($F{tipo}.equalsIgnoreCase("embalse")?"Perímetro del embalse":"Longitud de la rivera")]]></variableExpression>
+	</variable>
+	<variable name="totPlantas" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{plantacion} * $F{area}]]></variableExpression>
+	</variable>
+	<variable name="variable2" class="java.lang.String">
+		<variableExpression><![CDATA[($F{tipohidro}.equalsIgnoreCase("rio")?"Río":"Embalse")]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<line>
+				<reportElement x="16" y="62" width="613" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="143" y="20" width="350" height="38" forecolor="#003300"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proyecto de Reforestación
+Creación de Fajas Forestales Hidrorreguladoras
+]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="595" y="21" width="31" height="16" forecolor="#333333"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="521" y="40" width="100" height="16" forecolor="#666666"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="518" y="21" width="74" height="16" forecolor="#333333"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="73" y="12" width="554" height="1" forecolor="#009900"/>
+				<graphicElement>
+					<pen lineWidth="4.0"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="5" y="2" width="68" height="60"/>
+				<imageExpression class="java.lang.String"><![CDATA["\\images\\reportes.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="666" splitType="Stretch">
+			<rectangle>
+				<reportElement x="8" y="465" width="624" height="29" forecolor="#666666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="8" y="363" width="624" height="81" forecolor="#666666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="8" y="68" width="624" height="269" forecolor="#666666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="8" y="515" width="624" height="40" forecolor="#666666"/>
+			</rectangle>
+			<textField>
+				<reportElement x="147" y="23" width="214" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{productor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="387" y="24" width="71" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Organismo :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="458" y="23" width="169" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{organismo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="49" width="214" height="18" forecolor="#003300"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[CARACTERISTÍCAS DEL ÁREA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="72" width="214" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{rio_embalse}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="75" y="73" width="9" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="72" width="107" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del lugar :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="71" width="197" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nomblugar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="93" width="129" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área a reforestar (ha) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="144" y="92" width="108" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{areareforest}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="112" width="170" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pendiente predominante (%) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="182" y="111" width="108" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pendiente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="323" y="112" width="189" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precipitación media anual (mm) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="512" y="111" width="111" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{precmedia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="131" width="85" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de suelo :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="97" y="130" width="523" height="32"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{suelos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="167" width="127" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profundidad efectiva :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="167" width="103" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Materia orgánica :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="167" width="22" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ph :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="142" y="166" width="83" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{profefect}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="166" width="50" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ph}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="166" width="180" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{matorg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="186" width="88" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Erosión.  Tipo :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="185" width="221" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tipoerosion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="186" width="43" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grado :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="387" y="185" width="148" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{gradoerosion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="204" width="107" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vegetación.  Tipo :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="203" width="507" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{vegetacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="223" width="62" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Densidad :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="76" y="222" width="553" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{densidadveg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="242" width="498" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ancho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="261" width="130" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{variable1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="146" y="262" width="96" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[que protege (m):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="242" y="262" width="56" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{long_perim}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="263" width="89" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Superficie (ha):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="433" y="262" width="79" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{area}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="282" width="515" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Este proyecto técnico responde a un proyecto general de la cuenca del río o del embalse :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="529" y="281" width="31" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{proytecnicogen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="301" width="49" height="15" forecolor="#000000">
+					<printWhenExpression><![CDATA[$F{proytecnicogen}.equals("Si")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenca:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="320" width="71" height="15">
+					<printWhenExpression><![CDATA[$F{proytecnicogen}.equals("Si")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especificar:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="319" width="525" height="16">
+					<printWhenExpression><![CDATA[$F{proytecnicogen}.equals("Si")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{proyectespecif}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="345" width="214" height="18" forecolor="#003300"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DISEÑO DE LA PLANTACIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="370" width="129" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Método de plantación:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="369" width="482" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{metodoplant}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="389" width="234" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Composición de especies y distribución:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="246" y="388" width="375" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{compespecies}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="408" width="124" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marco de plantación :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="407" width="48" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{marcox}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="408" width="7" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="407" width="48" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{marcoy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="427" width="169" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de hileras en la faja :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="181" y="426" width="65" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{hileras}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="427" width="99" height="15" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Densidad inicial :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="447" width="293" height="18" forecolor="#003300"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[MEDIDAS DE CONSERVACIÓN DE SUELOS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="12" y="465" width="615" height="29"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{medconserv}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="497" width="214" height="18" forecolor="#003300"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[MEDIDAS DE PROTECCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="521" width="106" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contra incendios :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="119" y="520" width="471" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{medincendios}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="540" width="143" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contra el libre pastoreo :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="539" width="432" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{medpastoreo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="300" width="312" height="16">
+					<printWhenExpression><![CDATA[$F{proytecnicogen}.equals("Si")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuenca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="426" width="43" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{plantacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="427" width="99" height="15" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de plantas :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="5" width="63" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Provincia :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="501" y="426" width="74" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totPlantas}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="8" y="162" width="624" height="1" forecolor="#666666"/>
+			</line>
+			<line>
+				<reportElement x="8" y="280" width="624" height="1" forecolor="#666666"/>
+			</line>
+			<textField>
+				<reportElement x="75" y="4" width="176" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{provincia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="387" y="5" width="64" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipio :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="451" y="4" width="176" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{municipio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="24" width="135" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Productor :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="12" y="73" width="64" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{variable2}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="32">
+			<printWhenExpression><![CDATA[$F{istenente}==true]]></printWhenExpression>
+		</band>
+		<band height="558">
+			<staticText>
+				<reportElement x="12" y="430" width="340" height="16"/>
+				<textElement/>
+				<text><![CDATA[Elaborado por: __________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="461" width="340" height="16"/>
+				<textElement/>
+				<text><![CDATA[Ejecutado por: __________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="489" width="340" height="26"/>
+				<textElement/>
+				<text><![CDATA[Funcionario del SEF Municipal
+Nombre:  ___________________________________________ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="526" width="340" height="26"/>
+				<textElement/>
+				<text><![CDATA[Jefe del SEF Municipal
+Nombre:  ___________________________________________ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="428" width="159" height="18"/>
+				<textElement/>
+				<text><![CDATA[Firma : ___________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="461" width="159" height="18"/>
+				<textElement/>
+				<text><![CDATA[Firma : ___________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="489" width="159" height="18"/>
+				<textElement/>
+				<text><![CDATA[Firma : ___________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="526" width="159" height="18"/>
+				<textElement/>
+				<text><![CDATA[Firma : ___________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="20" width="464" height="18"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[FICHA DE COSTO PARA EL ESTABLECIMIENTO DE LA PLANTACIÓN]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="34" y="39" width="556" height="50"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 1">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Actividades]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{actividades}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[UM]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{um}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Cantidad]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{cantidad}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[CUP]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{cup}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[CUC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{cuc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:columnHeader style="table 3_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

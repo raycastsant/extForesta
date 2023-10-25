@@ -1,0 +1,97 @@
+8
+
+dir
+3352
+https://192.168.10.23:8443/svn/BaseConocimiento/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/administracion_seguridad
+https://192.168.10.23:8443/svn/BaseConocimiento
+
+
+
+2013-05-27T17:57:49.296875Z
+3351
+Raisel
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+cc5e2b2a-a4f3-bf45-a7f4-4b2335f55bd4
+
+TrazasManager.java
+file
+
+
+
+
+2013-05-27T20:05:44.332536Z
+df497a1df4a07a6aef1ac9769502b70d
+2013-05-27T17:57:49.296875Z
+3351
+Raisel
+
+VistaManager.java
+file
+
+
+
+
+2013-05-27T20:05:44.347537Z
+0fd139078545a404d8406627be9a080b
+2013-05-27T17:57:49.296875Z
+3351
+Raisel
+
+StringEncrypter.java
+file
+
+
+
+
+2013-05-27T20:05:44.364538Z
+543b9555b7b6a896144f0853ceba3390
+2013-05-27T17:57:49.296875Z
+3351
+Raisel
+
+UsuarioManager.java
+file
+
+
+
+
+2013-05-27T20:05:44.380539Z
+2f2016c9860ce21a018f30174d9bf3eb
+2013-05-27T17:57:49.296875Z
+3351
+Raisel
+
+extensiones
+dir
+
+gui
+dir
+
+db
+dir
+
+Usuario.java
+file
+
+
+
+
+2013-05-27T20:05:44.394540Z
+7321d46ebc355933a2347a6a4975b437
+2013-05-27T17:57:49.296875Z
+3351
+Raisel
+

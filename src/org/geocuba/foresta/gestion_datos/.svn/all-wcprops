@@ -1,0 +1,287 @@
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos
+END
+Faja.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Faja.java
+END
+Uso_catastroManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Uso_catastroManager.java
+END
+Red_drenaje.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Red_drenaje.java
+END
+ParcelaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/ParcelaManager.java
+END
+Faja_real.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Faja_real.java
+END
+Parcela.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Parcela.java
+END
+IPersistenObjectManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/IPersistenObjectManager.java
+END
+Embalse.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Embalse.java
+END
+Agrupador_uso.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Agrupador_uso.java
+END
+Tipo_hidrografia.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Tipo_hidrografia.java
+END
+Textura_suelosManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Textura_suelosManager.java
+END
+Proyecto_ReforestacionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Proyecto_ReforestacionManager.java
+END
+Tipo_suelo.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Tipo_suelo.java
+END
+RioManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/RioManager.java
+END
+ProvinciaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/ProvinciaManager.java
+END
+RelieveManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/RelieveManager.java
+END
+Proyecto_Reforestacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Proyecto_Reforestacion.java
+END
+Rio.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Rio.java
+END
+Relieve.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Relieve.java
+END
+Parteaguas.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Parteaguas.java
+END
+Municipio.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Municipio.java
+END
+Red_drenajeManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Red_drenajeManager.java
+END
+Cuenca.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Cuenca.java
+END
+Intensidad_lluvia.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Intensidad_lluvia.java
+END
+Faja_realManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Faja_realManager.java
+END
+EmbalseManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/EmbalseManager.java
+END
+Agrupador_usoManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Agrupador_usoManager.java
+END
+Tipo_hidrografiaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Tipo_hidrografiaManager.java
+END
+Uso_catastro.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Uso_catastro.java
+END
+EspecieManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/EspecieManager.java
+END
+HidrografiaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/HidrografiaManager.java
+END
+Especie.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Especie.java
+END
+Tipo_sueloManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Tipo_sueloManager.java
+END
+Hidrografia.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Hidrografia.java
+END
+SueloManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/SueloManager.java
+END
+PersistentGeometricObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/PersistentGeometricObject.java
+END
+Textura_suelos.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Textura_suelos.java
+END
+Velocidad_infiltracionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Velocidad_infiltracionManager.java
+END
+PersistentObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/PersistentObject.java
+END
+ParteaguasManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/ParteaguasManager.java
+END
+MunicipioManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/MunicipioManager.java
+END
+Suelo.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Suelo.java
+END
+Intensidad_lluviaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Intensidad_lluviaManager.java
+END
+CuencaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/CuencaManager.java
+END
+Provincia.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Provincia.java
+END
+Velocidad_infiltracion.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/Velocidad_infiltracion.java
+END
+FajaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/gestion_datos/FajaManager.java
+END

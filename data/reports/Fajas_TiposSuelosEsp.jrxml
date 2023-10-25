@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fajas_TiposSuelosEsp" language="groovy" pageWidth="700" pageHeight="792" columnWidth="660" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sql" class="java.lang.String">
+		<defaultValueExpression><![CDATA["select cuencas.nombre as cuenca, fajas.nombre_lugar as faja, hidrografia.nombre as hidrografia, tipo_hidrografia.descripcion as tipo_elemento, tipo_suelo.tipo as suelo, tipo_suelo.clave, round(CAST(Sum(ST_Area(st_intersection(suelos.the_geom,  fajas .the_geom))/10000) as numeric),2) AS area, especies.ncomun as especie from (((((((fajas inner join hidrografia on fajas.hidrografia=hidrografia.id)inner join tipo_hidrografia on hidrografia.tipo_hidrografia=tipo_hidrografia.id)inner join suelos_fajas on suelos_fajas.faja=fajas.gid)inner join suelos on suelos_fajas.suelo=suelos.gid)inner join tipo_suelo on suelos.tipo=tipo_suelo.id)inner join tipo_suelo_especies on tipo_suelo.id=tipo_suelo_especies.tipo_suelo)inner join especies on tipo_suelo_especies.especie=especies.id)inner join cuencas on hidrografia.cuenca=cuencas.gid where fajas.gid in (33) Group By cuencas.nombre, fajas.nombre_lugar, hidrografia.nombre, tipo_hidrografia.descripcion, tipo_suelo.tipo, tipo_suelo.clave, especies.ncomun order by tipo_suelo.tipo;"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[$P!{sql}]]>
+	</queryString>
+	<field name="cuenca" class="java.lang.String"/>
+	<field name="faja" class="java.lang.String"/>
+	<field name="hidrografia" class="java.lang.String"/>
+	<field name="tipo_elemento" class="java.lang.String"/>
+	<field name="suelo" class="java.lang.String"/>
+	<field name="clave" class="java.lang.String"/>
+	<field name="area" class="java.math.BigDecimal"/>
+	<field name="especie" class="java.lang.String"/>
+	<variable name="area_1" class="java.math.BigDecimal" resetType="Group" resetGroup="faja" calculation="Sum">
+		<variableExpression><![CDATA[$F{area}]]></variableExpression>
+	</variable>
+	<group name="cuenca">
+		<groupExpression><![CDATA[$F{cuenca}]]></groupExpression>
+		<groupHeader>
+			<band height="19">
+				<textField>
+					<reportElement x="11" y="0" width="135" height="16"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{cuenca}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="11" y="17" width="639" height="1"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="faja">
+		<groupExpression><![CDATA[$F{faja}]]></groupExpression>
+		<groupHeader>
+			<band height="17">
+				<textField>
+					<reportElement x="185" y="0" width="100" height="16"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{faja}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="18">
+				<textField>
+					<reportElement x="534" y="2" width="54" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{area_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="463" y="2" width="71" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Total de área:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="tipoelemento">
+		<groupExpression><![CDATA[$F{tipo_elemento}]]></groupExpression>
+		<groupHeader>
+			<band height="34">
+				<textField>
+					<reportElement x="116" y="17" width="264" height="16"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{tipo_elemento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="27" y="2" width="59" height="16"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hidrografía:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="27" y="17" width="89" height="16"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipo de elemento:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="86" y="2" width="236" height="16"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{hidrografia}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="suelo">
+		<groupExpression><![CDATA[$F{suelo}]]></groupExpression>
+		<groupHeader>
+			<band height="17">
+				<textField>
+					<reportElement x="305" y="0" width="178" height="16"/>
+					<textElement>
+						<font isItalic="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{suelo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="488" y="0" width="36" height="16"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{clave}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="534" y="0" width="36" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{area}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="3">
+				<line>
+					<reportElement x="588" y="1" width="67" height="1"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="62" splitType="Stretch">
+			<textField>
+				<reportElement x="533" y="22" width="74" height="16" forecolor="#333333"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="610" y="22" width="31" height="16" forecolor="#333333"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="534" y="41" width="100" height="16" forecolor="#666666"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="68" y="13" width="571" height="1" forecolor="#009900"/>
+				<graphicElement>
+					<pen lineWidth="4.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="71" y="21" width="461" height="17" forecolor="#003300"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especies recomendadas para los suelos de las Fajas forestales]]></text>
+			</staticText>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="68" height="60"/>
+				<imageExpression class="java.lang.String"><![CDATA["\\images\\reportes.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="59" width="660" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="25" width="660" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="301" y="8" width="48" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Suelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="8" width="36" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="8" width="36" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="588" y="8" width="66" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="8" width="48" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenca: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="8" width="29" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faja:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="588" y="0" width="66" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{especie}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="22" splitType="Stretch"/>
+	</summary>
+</jasperReport>

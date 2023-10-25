@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos
+END
+BufferByFieldAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/BufferByFieldAlgorithm.java
+END
+SeparateCrossLinesAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/SeparateCrossLinesAlgorithm.java
+END
+ObjectIntersetcsAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/ObjectIntersetcsAlgorithm.java
+END
+RemoveItemAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/RemoveItemAlgorithm.java
+END
+CrossSectionsAlgorithmM.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/CrossSectionsAlgorithmM.java
+END
+ProfileAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/ProfileAlgorithm.java
+END
+ExtendLastLineAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/ExtendLastLineAlgorithm.java
+END
+FixedDistanceBufferAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/BaseConocimiento/!svn/ver/3351/RepositorioProyectos/EP-SIFOMAP_3/Fuente/Desarrollo/extForesta/src/org/geocuba/foresta/analisis_terreno/algoritmos/FixedDistanceBufferAlgorithm.java
+END

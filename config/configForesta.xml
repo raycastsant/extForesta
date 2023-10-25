@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-tag xmlns="http://www.gvsig.gva.es">
+    <property key="name" value="capas"/>
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	<xml-tag>
+		<property key="name" value="config_capas"></property><!--<xml-tag>
+        <property key="tabla" value="municipios"></property>
+        <property key="name" value="Municipios" />
+        <property key="c1" value="89"></property>
+        <property key="c2" value="134" />
+        <property key="c3" value="68" />
+        <property key="cTransp" value="250" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag>--><xml-tag>
+        <property key="tabla" value="cuencas"></property>
+        <property key="name" value="Cuencas_Interés_Nacional" />
+        <property key="c1" value="97"></property>
+        <property key="c2" value="184" />
+        <property key="c3" value="39" />
+        <property key="cTransp" value="150" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="parcelas"></property>
+        <property key="name" value="Parcelas" />
+        <property key="c1" value="145"></property>
+        <property key="c2" value="85" />
+        <property key="c3" value="83" />
+        <property key="cTransp" value="120" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="_suelos"></property>
+        <property key="name" value="Suelos" />
+        <property key="c1" value="18"></property>
+        <property key="c2" value="96" />
+        <property key="c3" value="95" />
+        <property key="borderc1" value="255" />
+        <property key="borderc2" value="204" />
+        <property key="borderc3" value="204" />
+        <property key="borderwith" value="2" />
+        <property key="cTransp" value="0" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="relieve"></property>
+        <property key="name" value="Relieve" />
+        <property key="c1" value="112"></property>
+        <property key="c2" value="46" />
+        <property key="c3" value="52" />
+        <property key="cTransp" value="255" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="parteaguas"></property>
+        <property key="name" value="Parteaguas" />
+        <property key="c1" value="118"></property>
+        <property key="c2" value="141" />
+        <property key="c3" value="235" />
+        <property key="cTransp" value="145" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="fajas_real"></property>
+        <property key="name" value="Fajas_Real" />
+        <property key="c1" value="0"></property>
+        <property key="c2" value="102" />
+        <property key="c3" value="0" />
+        <property key="cTransp" value="255"></property><property key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="fajas"></property>
+        <property key="name" value="Fajas" />
+        <property key="c1" value="35"></property>
+        <property key="c2" value="224" />
+        <property key="c3" value="224" />
+        <property key="cTransp" value="118" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="embalses"></property>
+        <property key="name" value="Hidrografía_areal" />
+        <property key="c1" value="8"></property>
+        <property key="c2" value="157" />
+        <property key="c3" value="193" />
+        <property key="cTransp" value="255" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="red_drenaje"></property>
+        <property key="name" value="Redes_drenaje" />
+        <property key="c1" value="255"></property>
+        <property key="c2" value="102" />
+        <property key="c3" value="0" />
+        <property key="cTransp" value="255" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag><xml-tag>
+        <property key="tabla" value="rios"></property>
+        <property key="name" value="Hidrografía_lineal" />
+        <property key="c1" value="19"></property>
+        <property key="c2" value="22" />
+        <property key="c3" value="164" />
+        <property key="cTransp" value="255" /><property
+        	key="whereClause" value="">
+</property>
+</xml-tag></xml-tag>
+	<xml-tag>
+		<property key="name" value="raster_options"></property>
+		<property key="cellsize" value="25"></property></xml-tag>
+	<xml-tag>
+		<property key="name" value="algutils_options"></property>
+		<property key="reddrenaje_umbral" value="500000"></property>
+		<property key="acumflujo_convergence" value="1.1"></property></xml-tag>
+	<xml-tag>
+		<property key="name" value="conexion"></property>
+		<property key="PostgresSQLBinPath" value="C:\\Program Files (x86)\\PostgreSQL\\8.4\\bin\\"></property>
+		<property key="PostgresPort" value="5432"></property>
+		<property key="PostgresUser" value="postgres"></property>
+		<property key="PostgresPass" value="AyvH0Kd9FnHM60PhJTUSJQ=="></property>
+		<property key="PostgresDBName" value="sifomap"></property>
+		<property key="PostgresServerDir" value="localhost"></property></xml-tag>
+</xml-tag>

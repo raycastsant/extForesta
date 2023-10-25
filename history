@@ -1,0 +1,142 @@
+===PARA QUITAR LA VISTA DE GVSIG Y DEJAR LA DE FORESTA:
+ -Se comentario la linea ProjectViewFactory.register(); del metodo registerDocuments() de ProjectExtension
+===PARA EVITAR QUE SE LE CAMBIE EL NOMBRE, SE EDITE y SE TERMINE LA EDICION A LAS CAPAS DE FORESTA
+   -Se creo en el paquete gvsig de appgvSIG la clase GvSigForestaGlobal
+   -Se agrego el codigo 
+       [for(int i=0; i<selectedItems.length; i++)
+		{
+		 if(GvSigForestaGlobal.isForestaLayer(selectedItems[i].getName()))
+		  return false;	 
+		}] 
+	al metodo [isVisible] de las clases [StartEditingTocMenuEntry, StopEditingTocMenuEntry] de extCAD,
+	y las clases [ChangeNameTocMenuEntry, EliminarCapaTocMenuEntry] de appgvSIG	
+===PARA EVITAR QUE SE SAQUE LA INFORMACION DE LAS CAPAS DE FORESTA CON LA HERRAMIENTA DE GVSIG, SE
+   MODIFICO EL CODIGO DEL METODO [ISVISIBLE] DE LA CLASE [InfoToolExtension] DE appgvSIG:
+   
+   [  for (int i=0;i<layers.length;i++) 
+			{
+			 if(GvSigForestaGlobal.isForestaLayer(layers[i].getName()))
+			  return false;
+			 else
+			 if (layers[i].isAvailable()) 
+			  return true;
+			}   ]	
+===EN EL CASO DE LA EDICION, SE DESHABILITARON LAS HERRAMIENTAS DE EDICION ORIGINALES DE GVSIG, HACIENDO USO
+   DEL METODO  [if(GvSigForestaGlobal.isForestaLayer(layers[i].getName()))] EN LOS METODOS [ISVISIBLE] DE LAS EXTENSIONES.
+   PARA CONTROLAR LA EDICION DE LAS GEOMETRIAS EDITADAS POR VARIAS HERRAMIENTAS DE EDICION DE FORESTA, SE CREO EL METODO
+   [setCurrentEditedGeometry(IGeometry geometry)].  
+=====En extCAD se comentariaron los menus de exportar a DXF y POSTGIS  
+=====En appSIG se comentario el menu de Configurar localizador, y se agrego el localizador por municipio
+     de forma automatica en el Finish() de cargarCapasWT 			
+     
+=====En la clase Launcher de _fAndami se comentarió parte del código del método manageUnsavedData() para evitar el cartel
+     de descartar cambios.     
+
+OK HACER QUE SE MUESTREN LAS OPCIONES DEL PROGRAMA EN DEPENDENCIA DEL NIVEL DE USUARIO
+OK EN EL IMPORTADOR DAR LA OPCION DE QUE, AL RECLASIFICAR NOMENCLADORES, POR EJEMPLO TIPO DE SUELOS, SE
+   PUEDA DEJAR EN BLANCO EL VALOR (Que Agreguen el nomenclador si no existiera antes de Importar)
+OK EN LA TABLA DE GESTION DE DATOS CUANDO SE EJECUTE LA HERRAMIENTA DE INFORMACION, HAY QUE HACER QUE LA FICHA
+   DE GESTION TENGA DESHABILITADOS LOS BOTONES DE GUARDAR Y CANCELAR
+OK La ayuda está dando error al mostrarse
+OK En el panel de Herrero-Melchanov validar los valores de Velocidad de Infiltracion que se introduzcan sean decimales
+OK HACER QUE LAS COLUMNAS DEL PANEL DE GESTION NO SE PUEDAN MOVER DE LUGAR
+OK Hacer que en el panel de gestion cuando se de doble click en una fila, salga la informacion del elemento
+OK EN EL PANEL DE GESTION, POR EJEMPLO, SI SE MUESTRA LA GESTION DE SUELOS, Y SIN CERRARLA SE MUESTRA TAMBIEN
+   EL PANEL DE EMBALSES, AL CERRAR LOS EMBALSES Y TRATAR DE MOSTRAR LA INFORMACION DE UN SUELO, SE MUESTRA 
+   LA DE UN EMBALSE. SE QUEDA ENGANCHADO CON LOS EMBALSES.  (Se deshabilitaron las demás opciones cuando se esté
+   gestionando un tipo de elemento)
+OK SI SE SACA EL PANEL DE GESTION DE LAS CURVAS DE NIVEL EN LO QUE SE CARGAN LAS CAPAS DE LA VISTA, AL SELECCIONAR
+   UNA FILA DA UN PALO. PARA LAS DEMAS CAPAS DEBE PASAR LO MISMO (Se cargaron las capas en memoria, y luego en el método Finish() de 
+   la clase que carga las capas, se muestra la vista).
+OK CUANDO SE DIBUJA UN PARTEAGUAS Y ESTE SE AGREGA A LA TABLA DE GESTION DE DATOS Y TRATO DE SELECCIONAR OTRO ELEMENTO DESDE LA TABLA, 
+   SE SELECCIONAN DOS AL MISMO TIEMPO (Se limpia la seleccion de la capa al terminar la edicion en pGestionManager)
+OK CUANDO SE MODIFIQUE UN ELEMENTO GEOMETRICO, VALIDAR QUE CUANDO SE PRESIONE DEL O ESC NO SE AFECTE LA EDICION.
+   ESTO PERMITIRA QUE SOLO SE ELIMINEN ESTOS OBJETOS A TRAVES DEL PANEL DE GESTION. (Se agregó el código if(ct.getName().equals("Foresta_Polyline"))
+				 return; al método keyPressed de CADToolAdapter. Para el caso de la modificacion se agrego 	CADTool ct = (CADTool) cadToolStack.peek();
+			if(ct.getName().equals("Foresta_Edicion"))
+				 return;)
+OK En los métodos de ancho por cálculo verificar que los perfiles que se generen por fuera de la cuenca no se muestren
+OK Habilitar el operador TAB en las fichas de gestión de datos 
+OK Validar los campos numericos del proyecto de reforestacion
+OK Validar en los paneles de gestión que el caracter ';' no se pueda introducir porque sino da error
+OK Cambiar el tipo del campo 'Ancho_faja' de la tabla Tipo_hidrografia a Float, porque esta Integer 
+OK Al modificar un elemento de poligonos, si no se toca la geometria al guardar se muestra el cartel
+  "EL POLIGONO DIBIJADO ES INCORRECTO" por gusto(En el metodo save de los persistentGeometricObjects de poligonos, 
+  en la parte de ACTUALIZAR se valido que la informacion de geometria no fuera nula antes de llamr al método "ValidarGeometria(...)")
+OK Al ejecutar las herramientas de agregar o modificar elementos geometricos, validar que hasta que 
+  no se haya terminado la edicion no se puedan volver a ejecutar(Se creo el metodo "setEstadoBotonesGestion(boolean enabled)")
+OK *A la hora de agregar elemetos de poligonos, utilizar la herramienta de autocompletar(Se agrego el metodo "validarGeometria(JDBCAdapter db, String geomInfo, int gid, String tableName)")
+    a la clase "PersistentGeometricObject", que realiza la funcion de autocompletar y de poligono interno a traves del trabajo con las funciones de diferencia, interseccion y covertura de
+    POSTGIS.
+OK *Al crear las fajas, hallar la diferencia con las que estan ya creadas para que no queden areas montadas(Solucionado a traves del metodo
+   de validargeometrias(...) de "PersistentGeometricObject". Ver metodo "Finished" de GenerarFajaWT()).
+OK *Hacer herramienta de informacion para que cuando se de click en un elemento del mapa salga la informacion de este.
+    Hacer una similar pero para modificar  
+OK *Ocultar las herramientas de extCAD
+OK *Ver cuando activar el boton de generar Fajas en la ventana de ancho por cálculos. (Se valido que si no existian perfiles para el parteaguas no se genera la Faja)
+OK *Revisar iconos del panel de gestion de proyectos
+OK *Al iniciar la aplicacion verificar la existencia del fichero de configuracion y verificar la conexion
+OK *Cambiar los separadores de rutas de ficheros (\\) por  System.getProperty("file.separator"); para que 
+   sea relativo entre windows y LINUX  
+OK *Ver posibilidad de insertar trazas al salir del sistema   
+OK *Al insertar una faja de un embalse, hay que poner el valor de la orilla
+OK *En Herrero-Melchanov, en la ventana de subtramos, si se deselecciona el rio en cuestion no se crea la faja
+OK *Permitir guardar red de drenaje en la BD
+OK *Evitar evento de pegado en los edits
+OK *Evitar que en la ficha de usuarios queden valores en blanco
+Ok *En el metodo de Herrero Melchanov, si se pone valor de probabilidad de retorno 5 dice que el valor de 
+ precipitacion ds invalido. 
+OK *EN EL IMPORTADOR CUANDO SE DA CLIK EN EL BOTON DE ENLAZAR Y HAY UN SOLO ELEMENTO SELECCIONADO DA ERROR
+OK *EN EL IMPORTADOR CUANDO SE SELECCIONE UN FICHERO QUE NO SEA DEL TIPO DE ELEMENTO GEOMETRICO DE LA TABLA SELECCIONADA
+ NO SE DEBE PERMITIR IMPORTAR
+OK *EN EL CASO DE LOS SUELOS, A LA HORA DE EMPAREJAR CADA TIPO CON EL CAMPO SELECCIONADO DEL FICHERO, SI SE DA CANCELAR HACER QUE SE 
+    CANCELE LA IMPORTACIÓN
+OK *Probar eliminación de datos
+OK *Refinar la insercion de trazas.
+OK *Agregar un configurar Vista
+OK *Sacar el configurar conexion para todos los usuarios.
+OK *Obligar que la contraseña sea mayor que 8 caracteres
+OK *Quitar Evento de click en las cabeceras de las columnas
+OK *Lo de guardar el proyecto al cerrar gvSIG
+ 
+========================================================================================================================
+*CREAR IMPORTADOR DE MUNICIPIOS
+*Mostrar tabla del fichero a importar
+
+*Actualizar los Diagramas de VP:
+ OK -Se agreago una relacion de 1-* de Suelos a SubtramosPerfil
+ OK -Agregar las tablas proyecto, proyecto_especies, proyecto_suelos y fichacosto a los diagramas físico y lógico de la Tesis
+ OK -Relacion 1..* Proyecto_Reforestacion fajas
+ OK -Se cambio el campo tipo_hidrografia por hidrografia en el fisico
+
+*Revisar la conexion con BD de sifomap desde otra maquina que no esta pinchando
+ 
+*Buscar los ejecutables de postgres para salva y restaura en LINUX y probarlo.
+
+*En la tabla de gestion de datos, cuando se ordena por un campo, ya los elementos no se seleccionan
+en el mapa cuando se marca una fila de la tabla. (Ver posibilidad de crear una lista con los indices
+de las filas asociadas a los ID, y al hacer Zoom o seleccionar en la tabla, llamar a los Indices guardados
+en la lista) 
+
+*Revisar si es necesario gestionar municipios
+
+*Agregar fecha al proyecto de reforestacion
+
+*Validar los campos que no pueden admitir numeros
+
+*Si se seleccionan varios rios no se crean las fajas por legislacion. Revisar sin con Ancho Fijo pasa lo mismo
+
+*EN EL METODO DELETE() DE LOS PERSISTENTOBJECTS VERIFICAR QUE SI EL GID ES NULO NO SE BORRE NADA
+
+*CUANDO SE VAYAN A CREAR FAJAS A TRAVES DE PERFILES, VERIFICAR QUE LOS PERFILES (EDITADOS) NO SE PASEN DEL LIMITE DE LA CUENCA
+
+*Aumentar el tamaño de caracteres del campo nombre cientifico de la tabla especies. Aumentar también el de las siglas.
+ Esto debe ser validado para que no se pueda escribir más de lo normado para cada campo de las tablas
+ 
+ *Crear un reporte de perfiles con el modelo para perfiles del libro de Herrero.
+ 
+ *Al mostrar el informe que tienen que ver con la Ordenacion, cargar la capa de los rodales, evitando que se
+ pueda editar.
+ 
+*En los valores de precipitacion, si primero se inserta un valor con . luego se puede introducir un # al principio
+de la cadena, siendo el valor mayor que 100%

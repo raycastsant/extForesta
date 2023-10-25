@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jSeparator6" alignment="0" pref="633" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="599" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+          </Group>
+          <Component id="jSeparator1" alignment="1" pref="633" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="jBAdd" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBModificar" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBEliminar" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace pref="376" max="32767" attributes="0"/>
+              <Component id="jBCerrar" min="-2" pref="106" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="305" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jBModificar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBEliminar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBAdd" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBCerrar" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="Table">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="*/&#xa;db = new JDBCAdapter(ConnectionExt.getConexionActiva());&#xa;jScrollPane1 = crearTabla();&#xa;sorter.setModel(db);&#xa;Table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="/*"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+    </Component>
+    <Component class="javax.swing.JButton" name="jBAdd">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor" postCode="jBAdd.setIcon(new javax.swing.ImageIcon(PluginServices.getPluginServices(&quot;org.geocuba.foresta&quot;).getPluginDirectory()+&quot;\\images\\add-user.png&quot;));">
+          <Image iconType="2" name="D:\PROYECTOS\Tesis\gvSIG_1.11_FORESTA_WORKSPACE\extForesta\images\add-user.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Agregar usuario"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBModificar">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor" postCode="jBModificar.setIcon(new javax.swing.ImageIcon(PluginServices.getPluginServices(&quot;org.geocuba.foresta&quot;).getPluginDirectory()+&quot;\\images\\edit-user.png&quot;));">
+          <Image iconType="2" name="D:\PROYECTOS\Tesis\gvSIG_1.11_FORESTA_WORKSPACE\extForesta\images\edit-user.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Modificar datos de usuario"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBEliminar">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor" postCode="jBEliminar.setIcon(new javax.swing.ImageIcon(PluginServices.getPluginServices(&quot;org.geocuba.foresta&quot;).getPluginDirectory()+&quot;\\images\\delete-user.png&quot;));">
+          <Image iconType="2" name="D:\PROYECTOS\Tesis\gvSIG_1.11_FORESTA_WORKSPACE\extForesta\images\delete-user.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Eliminar usuario"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBCerrar">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor" postCode="jBCerrar.setIcon(new javax.swing.ImageIcon(PluginServices.getPluginServices(&quot;org.geocuba.foresta&quot;).getPluginDirectory()+&quot;\\images\\cerrar.png&quot;));">
+          <Image iconType="2" name="D:\PROYECTOS\Tesis\gvSIG_1.11_FORESTA_WORKSPACE\extForesta\images\cerrar.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cerrar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator6">
+    </Component>
+  </SubComponents>
+</Form>

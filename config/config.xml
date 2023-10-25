@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<plugin-config>
+	<depends plugin-name="com.iver.cit.gvsig"/>
+	<depends plugin-name="com.iver.cit.gvsig.cad"/>
+	<depends plugin-name="com.iver.cit.gvsig.geoprocess"/>
+	<depends plugin-name="es.unex.sextante"/>
+	<depends plugin-name="org.gvsig.sifomap.ordenacion"/>
+<!-- 	<depends plugin-name="com.iver.core"/>  -->
+	<libraries library-dir="lib"/>
+	<resourceBundle name="text"/>
+	<extensions>
+    <extension class-name="org.geocuba.foresta.herramientas.OpcionesExt"
+			description="Extension Opciones Foresta3"
+			active="true">
+			<menu text="MIndex/Opciones/MFlechas"
+				action-command="show_arrows" 
+				icon="mostrar_sentido"
+				/>
+			<menu text="MIndex/Opciones/MInvert"
+				action-command="invertlines" 
+				icon="invertir"
+				/>	
+			<menu text="MIndex/Opciones/Cargar capas"
+				action-command="loadlayers" 
+				/>	
+		</extension>
+	<extension class-name="org.geocuba.foresta.analisis_terreno.CuencasExt"
+			description="Extension Cuencas de Foresta3"
+			active="true">
+			<menu text="MIndex/MCalculos/Modelo digital del terreno" 
+		        action-command="mde" />
+			<menu text="MIndex/MCalculos/Red de drenaje/MLastMDE"
+				action-command="Redd_mdeant" />
+			<menu text="MIndex/MCalculos/Red de drenaje/MNewMDE"
+				action-command="Redd" />	
+			<menu text="MIndex/MCalculos/Cuencas en un área/MLastMDE" 
+		        action-command="cuencas_mdeant" /> 
+		    <menu text="MIndex/MCalculos/Cuencas en un área/MNewMDE" 
+		        action-command="cuencas" /> 
+			<menu text="MIndex/MCalculos/Relieve sombreado/MLastMDE" 
+		        action-command="relSomb_mdeant" />  
+		    <menu text="MIndex/MCalculos/Relieve sombreado/MNewMDE" 
+		        action-command="relSomb" /> 
+		    <menu text="MIndex/MCalculos/Pendiente/MLastMDE" 
+		        action-command="pend_mdeant" />  
+		    <menu text="MIndex/MCalculos/Pendiente/MNewMDE" 
+		        action-command="pend" /> 
+		</extension>
+		<extension class-name="org.geocuba.foresta.analisis_terreno.CuencasMDEExt"
+			description="Extensión de análisis del terreno"
+			active="true">
+			<menu text="MIndex/MCalculos/Red de drenaje"
+				action-command="Redd" />	
+		    <menu text="MIndex/MCalculos/Cuencas en un área" 
+		        action-command="cuencas" /> 
+		    <menu text="MIndex/MCalculos/Relieve sombreado" 
+		        action-command="relSomb" /> 
+		    <menu text="MIndex/MCalculos/Pendiente" 
+		        action-command="pend" /> 
+		</extension>
+	<extension class-name="org.geocuba.foresta.analisis_terreno.CuencaPointExt"
+			description="Extension para crear una cuenca vertiente a un punto dado"
+			active="true">
+			<menu text="MIndex/MCalculos/Cuenca vertiente a un punto"
+				action-command="cuencapoint" />
+		</extension>		
+	<extension class-name="org.geocuba.foresta.fajas.extensiones.AnchoFijo_LegislacionExt"
+			description="Extension para el cálculo del ancho de las fajas forestales de manera fija o por legislación"
+			active="true">
+			<menu text="MIndex/Fajas forestales/Métodos Ancho fijo y Ancho por legislación"
+				action-command="AnchoFijo" 
+				icon="crear_fajas"/>
+		</extension>	
+	<extension class-name="org.geocuba.foresta.fajas.extensiones.AnchoCalculosExt"
+			description="Extension para el cálculo del ancho de las fajas forestales por el metodo de la era parte de la longitud de la ladera"
+			active="true">
+			<menu text="MIndex/Fajas forestales/Método de ancho por cálculos"
+				action-command="AnchoCalc"
+				icon="crear_fajas"/>
+		</extension>	
+	
+	<extension class-name="org.geocuba.foresta.reportes.Fajas_ReportsExt"
+			description="Extension para los reportes"
+			active="true">
+			<menu text="MIndex/Reportes/Potencial de fajas"
+				action-command="potencial" 
+				icon="reporte"/>
+			<menu text="MIndex/Reportes/Suelos y especies recomendadas por fajas"
+				action-command="fajas_tsuelos_esp" 
+				icon="reporte"/>
+			<menu text="MIndex/Reportes/Catastro por fajas"
+				action-command="fajas_catastro" 
+				icon="reporte"/>
+			<menu text="MIndex/Reportes/Usos de Suelos"
+				action-command="fajas_tuso_suelo" 
+				icon="reporte"/> 
+			<menu text="MIndex/Reportes/Proyecto de Reforestación"
+				action-command="proy_ref" 
+				icon="reporte"/>
+			<menu text="MIndex/Reportes/Superficie de protección en la ordenación"
+				action-command="rodales" 
+				icon="reporte"/>
+			<!--<menu text="Foresta/Reportes/MFajasEsp/Especies existentes"
+				action-command="esp_cuenca" />
+			<menu text="Foresta/Reportes/MFajasEsp/Agrupación de especies por fajas"
+				action-command="esp_fajas" />-->
+	</extension>
+	<extension class-name="org.geocuba.foresta.reportes.Suelos_EspForestalExt"
+			description="Extension para los reportes"
+			active="true">
+			<menu text="MIndex/Reportes/Suelos y especies recomendadas"
+				action-command="suelos_esp" 
+				icon="reporte"/>
+	</extension>	
+	<!-- <extension class-name="org.geocuba.foresta.reportes.Superficie_ProtExt"
+			description="Extension para los reportes"
+			active="true">
+			<menu text="Reportes/Superficie de Protección"
+				action-command="sup_prot" />
+	</extension>	 -->
+	<extension class-name="org.geocuba.foresta.reportes.Parteaguas_ReportsExt"
+			description="Extension para los reportes"
+			active="true">
+			<menu text="MIndex/Reportes/Datos de los perfiles"
+				action-command="perfiles"
+				icon="reporte" />
+	</extension>	
+	<extension class-name="org.geocuba.foresta.reportes.TemMapsExt"
+			description="Extension para mostrar mapas tematicos"
+			active="true">
+			<menu text="MIndex/MmapasTematicos/Tipos de suelos"
+				action-command="mt_tiposuelo" 
+				icon="map"/>
+			<menu text="MIndex/MmapasTematicos/Textura de suelos"
+				action-command="mt_textsuelos" 
+				icon="map"/>
+		<!-- <menu text="MmapasTematicos/Estructura de suelos"
+				action-command="mt_estructsuelos" /> -->
+		<!--	<menu text="MmapasTematicos/Materia orgánica de los suelos"
+				action-command="mt_matorgsuelos" /> -->
+			<menu text="MIndex/MmapasTematicos/Usos de las parcelas"
+				action-command="mt_usosparcelas" 
+				icon="map"/>
+			<menu text="MIndex/MmapasTematicos/Usos de suelo por parcelas"
+				action-command="mt_uso_suelos" 
+				icon="map"/>
+	</extension>
+	<extension class-name="org.geocuba.foresta.analisis_terreno.SaveCuencasExt"
+			description="Extension para almacenar una capa de poligonos en la tabla de parteaguas"
+			active="true">
+			<menu text="MIndex/Opciones/MSaveCuencas"
+				action-command="savecuencas" />	
+	</extension>
+	<extension class-name="org.geocuba.foresta.analisis_terreno.SaveRedDrenajeExt"
+			description="Extension para guardar la red de drenaje en la Base de datos"
+			active="true">
+			<menu text="MIndex/Opciones/Guardar red de drenaje"
+				action-command="save_reddrenaje" />	
+	</extension>
+	<extension class-name="org.geocuba.foresta.gestion_datos.importacion.ImportExt"
+			description="Extension para importar archivos a la BD"
+			active="true">
+	<menu text="MIndex/Opciones/MImport"
+				action-command="Import" 
+				icon="importar"/>	
+	</extension>
+	<extension class-name="org.geocuba.foresta.fajas.extensiones.FajasExt"
+			description="Extension para realizar operaciones con fajas"
+			active="true">
+			<menu text="MIndex/Opciones/MFajasReal"
+				action-command="fajasreal" />	
+	</extension>
+	<!-- <extension class-name="org.geocuba.foresta.herramientas.viewProperties.ForestaDocumentExtension"
+			description="Extensión de Documento de FORESTASEF"
+			active="true">
+	</extension>  -->
+	<extension class-name="org.geocuba.foresta.administracion_seguridad.extensiones.ConnectionExt"
+			description="Extension de Conexion de Foresta"
+			active="true">
+	<!-- <menu text="Entrar/prueba"
+				action-command="prueba"
+				icon="login" />    -->
+	</extension>
+	<extension class-name="org.geocuba.foresta.gestion_datos.extensiones.Gestion_Datos_GeometricosExt"
+			description="Extension de Gestión de datos Geométricos de FORESTA"
+			active="true">
+			<menu text="MIndex/MGestion/Ríos"
+				action-command="9" />
+			<menu text="MIndex/MGestion/Redes de drenaje"
+				action-command="20" />
+			<menu text="MIndex/MGestion/Embalses"
+				action-command="4" />
+			<menu text="MIndex/MGestion/Fajas"
+				action-command="1" />
+			<menu text="MIndex/MGestion/Fajas Reales en el terreno"
+				action-command="5" />
+			<menu text="MIndex/MGestion/Parteaguas"
+				action-command="2" />
+			<menu text="MIndex/MGestion/Curvas de nivel"
+				action-command="8" /> 
+			<menu text="MIndex/MGestion/Suelos"
+				action-command="10" /> 
+			<menu text="MIndex/MGestion/Parcelas"
+				action-command="7" /> 
+			<menu text="MIndex/MGestion/Cuencas de Interés Nacional"
+				action-command="3" /> 
+			<menu text="MIndex/MGestion/Municipios"
+				action-command="6" />        
+	</extension>
+	<extension class-name="org.geocuba.foresta.gestion_datos.extensiones.Gestionar_NomencladoresExt"
+			description="Extension de Gestión de Nomencladores de FORESTA"
+			active="true">
+			<menu text="MIndex/MNomencladores/Agrupadores de usos de suelo"
+				action-command="11" />
+			<!-- <menu text="MIndex/Administración/MNomencladores/Especies"
+				action-command="12" />  -->
+			<!-- <menu text="MIndex/Administración/MNomencladores/Provincias"
+				action-command="14" /> -->
+			<!-- <menu text="Administración/MNomencladores/Texturas de suelo"
+				action-command="15" />  -->
+			<menu text="MIndex/MNomencladores/Tipos de elementos hidrográficos"
+				action-command="16" />
+			<menu text="MIndex/MNomencladores/Tipos de suelo"
+				action-command="17" />
+			<menu text="MIndex/MNomencladores/Usos de catastro"
+				action-command="18" />
+			<menu text="MIndex/MNomencladores/Valores de precipitación"
+				action-command="13" />
+			<!-- <menu text="Administración/MNomencladores/Velocidades de infiltración"
+				action-command="19" />  -->
+	</extension>
+	<!-- <extension class-name="org.geocuba.foresta.administracion_seguridad.extensiones.ConfigurarConexionExt"
+			description="Configurar conexion de FORESTA"
+			active="true">
+		 	<menu text="MIndex/Opciones/Configurar conexión"
+				action-command="config_conexion" 
+				icon="config_conexion"/> 
+	</extension> -->
+	<extension class-name="org.geocuba.foresta.administracion_seguridad.extensiones.SeguridadExt"
+			description="Extensión de Seguridad de FORESTA"
+			active="true">
+		<!--	<menu text="MIndex/Usuario/Cambiar contraseña"
+				action-command="cambiar_pass" 
+				icon="password"/>	
+			<menu text="MIndex/Usuario/Desconectar"
+				action-command="desconectar" 
+				icon="desconectar"/>
+			<menu text="MIndex/Opciones/Cargar vista"
+				action-command="cargar_vista" 
+				icon="cargar_vista"/> -->
+		<!-- 	<menu text="Herramientas/Preferencias" 
+			    action-command="preferencias"
+				icon="application-preferences"
+				tooltip="preferencias"/>  -->
+			<menu text="MIndex/Opciones/MCell"
+				action-command="cell_size" 
+				/>	
+			<menu text="MIndex/Opciones/MUmbral"
+				action-command="umbral_redd" 
+				/>
+	</extension>
+	<extension class-name="org.geocuba.foresta.gestion_datos.extensiones.InfoExtension"
+			description="Extension de información de FORESTA"
+			active="true">
+			<tool-bar name="Foresta">
+				<selectable-tool icon="informacion" 
+				             tooltip="Obtener información de elementos"
+					         action-command="INFO" 
+					         position="0"/>	
+			</tool-bar>	
+		</extension>	
+	<!--	<extension class-name="org.geocuba.foresta.administracion_seguridad.extensiones.ConfigurarVistaExt"
+			description="Configurar Vista"
+			active="true">
+			<menu text="MIndex/Opciones/Configurar vista" 
+			      action-command="configurar_vista" 
+			      icon="configurar_vista"/>
+		</extension>    -->
+		<extension class-name="org.geocuba.foresta.administracion_seguridad.extensiones.CargarLocalizadorExt"
+			description="Cargar el Localizador"
+			active="true">
+			<menu text="MIndex/Vista/Cargar localizador" 
+			      action-command="localizador"/>
+		</extension>	
+		<extension class-name="org.geocuba.foresta.gestion_datos.extensiones.EditarVerticeExtension"
+			description="Extensión encargada de gestionar vértices en edición"
+			active="true">
+			<menu text="MIndex/Geometría/Editar vértice" action-command="_editarvertice" icon="edition-geometry-edit-vertex"/>
+			<tool-bar name="edicion_foresta" position="0">
+				<selectable-tool icon="edition-geometry-edit-vertex" action-command="_editarvertice" tooltip="Editar vértice" position="8"/>
+			</tool-bar>
+		</extension>
+		<extension class-name="org.geocuba.foresta.gestion_datos.extensiones.ModificarGeometriaExtension"
+			description="Extensión encargada de seleccionar las geometrías"
+			active="true">
+			<menu text="MIndex/Geometría/Modificar" action-command="modificarGEom" icon="edition-geometry-select"/>
+			<tool-bar name="edicion_foresta" position="1">
+				<selectable-tool icon="edition-geometry-select" action-command="modificarGEom" tooltip="Modificar geometría" position="15"/>
+			</tool-bar>
+		</extension>
+		<extension class-name="org.geocuba.foresta.administracion_seguridad.extensiones.AdministracionExt"
+			description="Extensión de Administración de FORESTA"
+			active="true">
+		<!-- 	<menu text="Administración/Configurar conexión"
+				action-command="config_conexion" 
+				icon="config_conexion"/>	  
+		    <menu text="MIndex/Administración/Gestionar usuarios"
+				action-command="gestionar_usuarios" 
+				icon="gestion_usuarios"/>	
+			<menu text="MIndex/Administración/Restaurar base de datos"
+				action-command="restaurar" 
+				icon="restaurarbd"/>	
+			<menu text="MIndex/Administración/Salvar base de datos"
+				action-command="salvar" 
+				icon="salvarbd"/>	-->
+			<menu text="MIndex/Monitorear trazas"
+				action-command="trazas" 
+				icon="trazas"/>	
+	</extension>
+	<extension class-name="org.geocuba.foresta.herramientas.F_HelpExt"
+			description="Extensión de ayuda FORESTA"
+			active="true">
+			<menu text="MIndex/Contenido de ayuda"
+				action-command="help" 
+				icon="help"/>	
+		<!-- 	<menu text="MIndex/PARCHE"
+				action-command="parche"/>    --> 
+	</extension>
+  </extensions>
+</plugin-config>
